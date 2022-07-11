@@ -1,5 +1,5 @@
 
-import Employee from "./lib/employee";
+import Employee from "../lib/employee";
 import Intern from "./lib/intern";
 import Engineer from "./lib/engineer";
 import Manager from "./lib/manager";
@@ -20,24 +20,26 @@ const mainQuestionsPrompt = () => {
                 if (value === '') {
                     return 'Please enter your role.';   
                 } else {    
-                    if (value === 'intern') => {
+                    if (value === 'intern')  {
                         internQuestions();  
-                    }   else if (value === 'engineer') => {
+                    }   else if (value === 'engineer')  {
                         engineerQuestions();
-                    }   else if (value === 'manager') => {
+                    }   else if (value === 'manager')  {
                         managerQuestions();
                     }   else {
                         return 'Please enter your role.';
                     }  
                 }   
             }   
+        }   
+    ]);
                                  
 
 
 
     
 
-    
+}
 
 
 
@@ -90,7 +92,7 @@ const engineerQuestions = ()=> {
             message: 'What is your GitHub username?'
         }
     ]);
-}
+}   
 
 const managerQuestions = ()=> {
     return inquirer.prompt([
