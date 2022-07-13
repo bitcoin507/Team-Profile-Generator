@@ -1,14 +1,14 @@
 
-import Employee from "../lib/employee";
-import Intern from "./lib/intern";
-import Engineer from "./lib/engineer";
-import Manager from "./lib/manager";
-
-const fs = require('fs');
 const inquirer = require('inquirer');
-const html = require('./utililites/generatehtml');
 
 fs = require('inquirer');
+
+
+
+const employees=[];
+const engineers=[];
+const managers=[];
+const interns=[];
 
 const mainQuestionsPrompt = () => {
     return inquirer.prompt([
@@ -32,7 +32,12 @@ const mainQuestionsPrompt = () => {
                 }   
             }   
         }   
-    ]);
+    ])
+    .then(Response => {
+        const employee = new Employee(Response.name, Response.id, Response.email, Response.role);
+        employees.push(employee);
+        
+    })
                                  
 
 
@@ -67,6 +72,11 @@ const internQuestions = () => {
             message: 'What school did you attend?'
         }
     ])
+    .then(Response => {
+        const intern = new Intern(Response.name, Response.id, Response.email, Response.school);
+        interns.push(intern);
+        
+    })
 }
 
 const engineerQuestions = ()=> {
@@ -91,7 +101,12 @@ const engineerQuestions = ()=> {
             name: 'github',
             message: 'What is your GitHub username?'
         }
-    ]);
+    ])
+    .then(Response => {
+        const engineer = new Engineer(Response.name, Response.id, Response.email, Response.github);
+        engineers.push(engineer);
+        
+    })
 }   
 
 const managerQuestions = ()=> {
@@ -116,17 +131,95 @@ const managerQuestions = ()=> {
             name: 'officeNumber',
             message: 'What is your office number?'
         }
-    ]);
+    ])
+    .then(Response => {
+        const manager = new Manager(Response.name, Response.id, Response.email, Response.officeNumber);
+        managers.push(manager);
+        
+    })
+    
 }
 
-const init = () => {
-    mainQuestionsPrompt()
-      .then((answers) => fs.writeFileSync('index.html', generateHTML(answers)))
-      .then(() => console.log('Successfully created Team Profile!'))
-      .catch((err) => console.error(err));
-  };
+mainQuestionsPrompt();
+
+const generateHTML = ({ name, email, github, id,role,school,officeNumber }) =>
+  `<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <title>Document</title>
+</head>
+<body>
+  <div class="jumbotron jumbotron-fluid">
+  <div class="container">
+
+  div class = "employeeCard"> 
+  <p>Role: ${role}</p>
+  <p>Name: ${name}</p>
+  <p>ID: ${id}</p>
+  <p>Email: ${email}</p>
+  <p>GitHub: ${github}</p>
+  <p>School: ${school}</p>
+  <p>Office Number: ${officeNumber}</p>
   
-  init();
+  </div>
+
+  div class = "employeeCard"> 
+  <p>Role: ${role}</p>
+  <p>Name: ${name}</p>
+  <p>ID: ${id}</p>
+  <p>Email: ${email}</p>
+  <p>GitHub: ${github}</p>
+  <p>School: ${school}</p>
+  <p>Office Number: ${officeNumber}</p>
+  
+  </div>
+
+  div class = "employeeCard">
+  <p>Role: ${role}</p>
+  <p>Name: ${name}</p>
+  <p>ID: ${id}</p>
+  <p>Email: ${email}</p>
+  <p>GitHub: ${github}</p>
+  <p>School: ${school}</p>
+  <p>Office Number: ${officeNumber}</p>
+  
+</div>
+
+  div class = "employeeCard">
+  <p>Role: ${role}</p>
+  <p>Name: ${name}</p>
+  <p>ID: ${id}</p>
+  <p>Email: ${email}</p>
+  <p>GitHub: ${github}</p>
+  <p>School: ${school}</p>
+  <p>Office Number: ${officeNumber}</p>
+   </div>
+
+  div class = "employeeCard"> 
+  <p>Role: ${role}</p>
+  <p>Name: ${name}</p>
+  <p>ID: ${id}</p>
+  <p>Email: ${email}</p>
+  <p>GitHub: ${github}</p>
+  <p>School: ${school}</p>
+  <p>Office Number: ${officeNumber}</p>
+  </div>
+
+
+    
+
+   
+  </div>
+</div>
+</body>
+</html>`;
+
+
+
+
 
      
 

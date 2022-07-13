@@ -1,4 +1,6 @@
-const generateHTML = ({ name, email, github, id,role,school }) =>
+
+
+const generateHTML = ({ name, email, github, id,role,school,officeNumber }) =>
   `<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,12 +12,62 @@ const generateHTML = ({ name, email, github, id,role,school }) =>
 <body>
   <div class="jumbotron jumbotron-fluid">
   <div class="container">
-    <h1 class="display-4">Hi! My name is ${name}</h1>
-    <p class="lead">My role is ${role}</p>
-    <p class="lead">My ID is ${id}</p>
-    <p class="lead">My email is ${email}</p>
-    <p class="lead">My GitHub username is ${github}</p>
-    <p class="lead">My school is ${school}</p>
+
+  div class = "employeeCard"> 
+  <p>Role: ${role}</p>
+  <p>Name: ${name}</p>
+  <p>ID: ${id}</p>
+  <p>Email: ${email}</p>
+  <p>GitHub: ${github}</p>
+  <p>School: ${school}</p>
+  <p>Office Number: ${officeNumber}</p>
+  
+  </div>
+
+  div class = "employeeCard"> 
+  <p>Role: ${role}</p>
+  <p>Name: ${name}</p>
+  <p>ID: ${id}</p>
+  <p>Email: ${email}</p>
+  <p>GitHub: ${github}</p>
+  <p>School: ${school}</p>
+  <p>Office Number: ${officeNumber}</p>
+  
+  </div>
+
+  div class = "employeeCard">
+  <p>Role: ${role}</p>
+  <p>Name: ${name}</p>
+  <p>ID: ${id}</p>
+  <p>Email: ${email}</p>
+  <p>GitHub: ${github}</p>
+  <p>School: ${school}</p>
+  <p>Office Number: ${officeNumber}</p>
+  
+</div>
+
+  div class = "employeeCard">
+  <p>Role: ${role}</p>
+  <p>Name: ${name}</p>
+  <p>ID: ${id}</p>
+  <p>Email: ${email}</p>
+  <p>GitHub: ${github}</p>
+  <p>School: ${school}</p>
+  <p>Office Number: ${officeNumber}</p>
+   </div>
+
+  div class = "employeeCard"> 
+  <p>Role: ${role}</p>
+  <p>Name: ${name}</p>
+  <p>ID: ${id}</p>
+  <p>Email: ${email}</p>
+  <p>GitHub: ${github}</p>
+  <p>School: ${school}</p>
+  <p>Office Number: ${officeNumber}</p>
+  </div>
+
+
+    
 
    
   </div>
