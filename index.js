@@ -5,7 +5,7 @@ fs = require('inquirer');
 
 
 
-const employees=[];
+const employees =[];
 const engineers=[];
 const managers=[];
 const interns=[];
@@ -34,8 +34,9 @@ const mainQuestionsPrompt = () => {
         }   
     ])
     .then(Response => {
-        const employee = new Employee(Response.name, Response.id, Response.email, Response.role);
+        const employee = new Employee( Response.role);
         employees.push(employee);
+        
         
     })
                                  
@@ -44,7 +45,7 @@ const mainQuestionsPrompt = () => {
 
     
 
-}
+};
 
 
 
@@ -139,83 +140,96 @@ const managerQuestions = ()=> {
     })
     
 }
-
-mainQuestionsPrompt();
-
-const generateHTML = ({ name, email, github, id,role,school,officeNumber }) =>
-  `<!DOCTYPE html>
+const generateHTML = ({ name,role, email, github, id,school,officeNumber }) =>
+`<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-  <title>Document</title>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+<title>Document</title>
 </head>
 <body>
-  <div class="jumbotron jumbotron-fluid">
-  <div class="container">
+<div class="jumbotron jumbotron-fluid">
+<div class="container">
 
-  div class = "employeeCard"> 
-  <p>Role: ${role}</p>
-  <p>Name: ${name}</p>
-  <p>ID: ${id}</p>
-  <p>Email: ${email}</p>
-  <p>GitHub: ${github}</p>
-  <p>School: ${school}</p>
-  <p>Office Number: ${officeNumber}</p>
-  
-  </div>
+div class = "employeeCard"> 
+<p>Role: ${role}</p>
+<p>Name: ${name}</p>
+<p>ID: ${id}</p>
+<p>Email: ${email}</p>
+<p>GitHub: ${github}</p>
+<p>School: ${school}</p>
+<p>Office Number: ${officeNumber}</p>
 
-  div class = "employeeCard"> 
-  <p>Role: ${role}</p>
-  <p>Name: ${name}</p>
-  <p>ID: ${id}</p>
-  <p>Email: ${email}</p>
-  <p>GitHub: ${github}</p>
-  <p>School: ${school}</p>
-  <p>Office Number: ${officeNumber}</p>
-  
-  </div>
-
-  div class = "employeeCard">
-  <p>Role: ${role}</p>
-  <p>Name: ${name}</p>
-  <p>ID: ${id}</p>
-  <p>Email: ${email}</p>
-  <p>GitHub: ${github}</p>
-  <p>School: ${school}</p>
-  <p>Office Number: ${officeNumber}</p>
-  
 </div>
 
-  div class = "employeeCard">
-  <p>Role: ${role}</p>
-  <p>Name: ${name}</p>
-  <p>ID: ${id}</p>
-  <p>Email: ${email}</p>
-  <p>GitHub: ${github}</p>
-  <p>School: ${school}</p>
-  <p>Office Number: ${officeNumber}</p>
-   </div>
+div class = "employeeCard"> 
+<p>Role: ${role}</p>
+<p>Name: ${name}</p>
+<p>ID: ${id}</p>
+<p>Email: ${email}</p>
+<p>GitHub: ${github}</p>
+<p>School: ${school}</p>
+<p>Office Number: ${officeNumber}</p>
 
-  div class = "employeeCard"> 
-  <p>Role: ${role}</p>
-  <p>Name: ${name}</p>
-  <p>ID: ${id}</p>
-  <p>Email: ${email}</p>
-  <p>GitHub: ${github}</p>
-  <p>School: ${school}</p>
-  <p>Office Number: ${officeNumber}</p>
-  </div>
+</div>
+
+div class = "employeeCard">
+<p>Role: ${role}</p>
+<p>Name: ${name}</p>
+<p>ID: ${id}</p>
+<p>Email: ${email}</p>
+<p>GitHub: ${github}</p>
+<p>School: ${school}</p>
+<p>Office Number: ${officeNumber}</p>
+
+</div>
+
+div class = "employeeCard">
+<p>Role: ${role}</p>
+<p>Name: ${name}</p>
+<p>ID: ${id}</p>
+<p>Email: ${email}</p>
+<p>GitHub: ${github}</p>
+<p>School: ${school}</p>
+<p>Office Number: ${officeNumber}</p>
+ </div>
+
+div class = "employeeCard"> 
+<p>Role: ${role}</p>
+<p>Name: ${name}</p>
+<p>ID: ${id}</p>
+<p>Email: ${email}</p>
+<p>GitHub: ${github}</p>
+<p>School: ${school}</p>
+<p>Office Number: ${officeNumber}</p>
+</div>
 
 
-    
+  
 
-   
-  </div>
+ 
+</div>
 </div>
 </body>
 </html>`;
+
+const init = () => {
+  mainQuestionsPrompt()
+    // Use writeFileSync method to use promises instead of a callback function
+    .then((Response) => fs.writeFileSync('index.html', generateHTML(Response)))
+    .then(() => console.log('Successfully wrote to index.html'))
+    .catch((err) => console.error(err));
+};
+
+init();
+
+
+
+
+
+
 
 
 
