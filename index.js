@@ -18,12 +18,10 @@ const mainQuestionsPrompt = () => {
             message: 'What is your role?',
             choices: ['Engineer', 'Manager', 'Intern' ]
         },
-    ]),
+    ])
     
-    .then((answers) => {
-        if (answers.name === '') {
-            return'Please enter your role';
-        } else 
+    .then(answers => {
+        
         if (answers.name === 'Engineer') {
             return engineerQuestionsPrompt();
 
@@ -33,16 +31,16 @@ const mainQuestionsPrompt = () => {
         }   else 
         if (answers.name === 'Intern') {
             return internQuestionsPrompt();
-        }     
+        };     
 
-    }),
+    });
 
     
 
 
 
 
-}
+};   
 
 const internQuestionsPrompt = () => {
     return inquirer.prompt([
