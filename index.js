@@ -13,44 +13,38 @@ const interns=[];
 const mainQuestionsPrompt = () => {
     return inquirer.prompt([
         {
-            type: 'input',
+            type: 'list',
             name: 'role',
             message: 'What is your role?',
-            validate: (value) => {
-                if (value === '') {
-                    return 'Please enter your role.';   
-                } else {    
-                    if (value === 'intern')  {
-                        internQuestions();  
-                    }   else if (value === 'engineer')  {
-                        engineerQuestions();
-                    }   else if (value === 'manager')  {
-                        managerQuestions();
-                    }   else {
-                        return 'Please enter your role.';
-                    }  
-                }   
-            }   
-        }   
-    ])
-    .then(Response => {
-        const employee = new Employee( Response.role);
-        employees.push(employee);
-        
-        
+            choices: ['Engineer', 'Manager', 'Intern' ]
+        },
+    ]),
+    
+    .then((answers) => {
+        if (answers.name === '') {
+            return'Please enter your role';
+        } else 
+        if (answers.name === 'Engineer') {
+            return engineerQuestionsPrompt();
+
+        } else 
+        if (answers.name === 'Manager') {
+            return managerQuestionsPrompt();
+        }   else 
+        if (answers.name === 'Intern') {
+            return internQuestionsPrompt();
+        }      
+
     })
-                                 
-
-
 
     
 
-};
 
 
 
+}
 
-const internQuestions = () => {
+const internQuestionsPrompt = () => {
     return inquirer.prompt([
         {
             type: 'input',
@@ -73,14 +67,14 @@ const internQuestions = () => {
             message: 'What school did you attend?'
         }
     ])
-    .then(Response => {
-        const intern = new Intern(Response.name, Response.id, Response.email, Response.school);
+    .then(answers => {
+        const intern = new Intern(answers.name, answers.id, answers.email, answers.school);
         interns.push(intern);
         
     })
 }
 
-const engineerQuestions = ()=> {
+const engineerQuestionsPrompt = ()=> {
     return inquirer.prompt([
         {
             type: 'input',
@@ -103,14 +97,14 @@ const engineerQuestions = ()=> {
             message: 'What is your GitHub username?'
         }
     ])
-    .then(Response => {
-        const engineer = new Engineer(Response.name, Response.id, Response.email, Response.github);
+    .then(answers => {
+        const engineer = new Engineer(answers.name, answers.id, answers.email, answers.github);
         engineers.push(engineer);
         
     })
 }   
 
-const managerQuestions = ()=> {
+const managerQuestionsPrompt = ()=> {
     return inquirer.prompt([
         {
             type: 'input',
@@ -133,14 +127,14 @@ const managerQuestions = ()=> {
             message: 'What is your office number?'
         }
     ])
-    .then(Response => {
-        const manager = new Manager(Response.name, Response.id, Response.email, Response.officeNumber);
+    .then(answers => {
+        const manager = new Manager(answers.name, answers.id, answersemail, answersofficeNumber);
         managers.push(manager);
         
     })
     
 }
-const generateHTML = ({ name,role, email, github, id,school,officeNumber }) =>
+const generateHTML = ({    }) =>
 `<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -218,7 +212,7 @@ div class = "employeeCard">
 const init = () => {
   mainQuestionsPrompt()
     // Use writeFileSync method to use promises instead of a callback function
-    .then((Response) => fs.writeFileSync('index.html', generateHTML(Response)))
+    .then((answers) => fs.writeFileSync('index.html', generateHTML()))
     .then(() => console.log('Successfully wrote to index.html'))
     .catch((err) => console.error(err));
 };
