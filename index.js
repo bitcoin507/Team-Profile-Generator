@@ -126,13 +126,13 @@ const managerQuestionsPrompt = ()=> {
         }
     ])
     .then(answers => {
-        const manager = new Manager(answers.name, answers.id, answersemail, answersofficeNumber);
+        const manager = new Manager(answers.name, answers.id, answers.email, answers.officeNumber);
         managers.push(manager);
         
     })
     
 }
-const generateHTML = ({    }) =>
+const generateHTML = () => {
 `<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -146,9 +146,9 @@ const generateHTML = ({    }) =>
 <div class="container">
 
 div class = "employeeCard"> 
-<p>Role: ${role}</p>
+
 <p>Name: ${Name}</p>
-<p>ID: ${id}</p>
+<p>ID: ${answers.id}</p>
 <p>Email: ${email}</p>
 <p>GitHub: ${github}</p>
 <p>School: ${school}</p>
@@ -157,7 +157,7 @@ div class = "employeeCard">
 </div>
 
 div class = "employeeCard"> 
-<p>Role: ${role}</p>
+
 <p>Name: ${Name}</p>
 <p>ID: ${id}</p>
 <p>Email: ${email}</p>
@@ -168,7 +168,7 @@ div class = "employeeCard">
 </div>
 
 div class = "employeeCard">
-<p>Role: ${role}</p>
+
 <p>Name: ${Name}</p>
 <p>ID: ${id}</p>
 <p>Email: ${email}</p>
@@ -179,7 +179,7 @@ div class = "employeeCard">
 </div>
 
 div class = "employeeCard">
-<p>Role: ${role}</p>
+
 <p>Name: ${Name}</p>
 <p>ID: ${id}</p>
 <p>Email: ${email}</p>
@@ -189,7 +189,7 @@ div class = "employeeCard">
  </div>
 
 div class = "employeeCard"> 
-<p>Role: ${role}</p>
+
 <p>Name: ${Name}</p>
 <p>ID: ${id}</p>
 <p>Email: ${email}</p>
@@ -206,6 +206,7 @@ div class = "employeeCard">
 </div>
 </body>
 </html>`;
+}
 
 const init = () => {
   mainQuestionsPrompt()
