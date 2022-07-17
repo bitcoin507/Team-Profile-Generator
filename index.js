@@ -33,9 +33,9 @@ const mainQuestionsPrompt = () => {
         }   else 
         if (answers.name === 'Intern') {
             return internQuestionsPrompt();
-        }      
+        }     
 
-    })
+    }),
 
     
 
@@ -48,7 +48,7 @@ const internQuestionsPrompt = () => {
     return inquirer.prompt([
         {
             type: 'input',
-            name: 'name',
+            name: 'Name',
             message: 'What is your name?'
         },
         {
@@ -149,7 +149,7 @@ const generateHTML = ({    }) =>
 
 div class = "employeeCard"> 
 <p>Role: ${role}</p>
-<p>Name: ${name}</p>
+<p>Name: ${Name}</p>
 <p>ID: ${id}</p>
 <p>Email: ${email}</p>
 <p>GitHub: ${github}</p>
@@ -160,7 +160,7 @@ div class = "employeeCard">
 
 div class = "employeeCard"> 
 <p>Role: ${role}</p>
-<p>Name: ${name}</p>
+<p>Name: ${Name}</p>
 <p>ID: ${id}</p>
 <p>Email: ${email}</p>
 <p>GitHub: ${github}</p>
@@ -171,7 +171,7 @@ div class = "employeeCard">
 
 div class = "employeeCard">
 <p>Role: ${role}</p>
-<p>Name: ${name}</p>
+<p>Name: ${Name}</p>
 <p>ID: ${id}</p>
 <p>Email: ${email}</p>
 <p>GitHub: ${github}</p>
@@ -182,7 +182,7 @@ div class = "employeeCard">
 
 div class = "employeeCard">
 <p>Role: ${role}</p>
-<p>Name: ${name}</p>
+<p>Name: ${Name}</p>
 <p>ID: ${id}</p>
 <p>Email: ${email}</p>
 <p>GitHub: ${github}</p>
@@ -192,7 +192,7 @@ div class = "employeeCard">
 
 div class = "employeeCard"> 
 <p>Role: ${role}</p>
-<p>Name: ${name}</p>
+<p>Name: ${Name}</p>
 <p>ID: ${id}</p>
 <p>Email: ${email}</p>
 <p>GitHub: ${github}</p>
