@@ -19,22 +19,26 @@ const mainQuestionsPrompt = () => {
             type: 'list',
             name: 'role',
             message: 'What is your role?',
-            choices: ['Engineer', 'Manager', 'Intern' ]
+            choices: ['Engineer', 'Manager', 'Intern', 'Generate Team Profile' ]
         },
     ])
     
     .then(answers => {
         
-        if (answers.name === 'Engineer') {
+        if (answers.role === 'Engineer') {
             return engineerQuestionsPrompt();
 
         } else 
-        if (answers.name === 'Manager') {
+        if (answers.role === 'Manager') {
             return managerQuestionsPrompt();
         }   else 
-        if (answers.name === 'Intern') {
+        if (answers.role === 'Intern') {
             return internQuestionsPrompt();
-        };     
+            
+        } else
+        if (answers.role === 'Generate Team Profile') {
+            generateHTML;
+        }
 
     });
 
@@ -71,6 +75,8 @@ const internQuestionsPrompt = () => {
     .then(answers => {
         const intern = new Intern(answers.name, answers.id, answers.email, answers.school);
         interns.push(intern);
+
+        mainQuestionsPrompt();
         
     })
 }
@@ -101,6 +107,8 @@ const engineerQuestionsPrompt = ()=> {
     .then(answers => {
         const engineer = new Engineer(answers.name, answers.id, answers.email, answers.github);
         engineers.push(engineer);
+
+        mainQuestionsPrompt();
         
     })
 }   
@@ -131,6 +139,8 @@ const managerQuestionsPrompt = ()=> {
     .then(answers => {
         const manager = new Manager(answers.name, answers.id, answers.email, answers.officeNumber);
         managers.push(manager);
+
+        mainQuestionsPrompt();
         
     })
     
