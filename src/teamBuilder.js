@@ -4,8 +4,9 @@ const Manager = require('..//lib/Manager');
 const Intern = require('..//lib/Intern');
 const Engineer = require('..//lib/Engineer');
 
+
 const buildTeamPage = (managers,interns, engineers ) => {
-    let html= fs.readFileSync('./template/index.html, utf8');
+    let html= fs.readFileSync('./template/index.html', 'utf8');
     if (html)   
     {
         let managerHTML = '';
@@ -48,9 +49,8 @@ const buildTeamPage = (managers,interns, engineers ) => {
         html = html.replace('{{INTERNS}', internHTML);
         html = html.replace('{{ENGINEERS}}', engineerHTML);
         
-        fs.writeFileSync('./index.html', html, 'utf8');
-
-        console.log('Successfully wrote to index.html');
+       fs.writeFileSync('./dist/team.html',team.html ,'utf8');
+        console.log('Successfully wrote to team.html');
 
     }
 }
