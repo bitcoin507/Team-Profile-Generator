@@ -9,13 +9,12 @@ const Engineer = require("./lib/Engineer")
 
 
 
-const employees =[];
 const engineers=[];
 const managers=[];
 const interns=[];
 
 const mainQuestionsPrompt = () => {
-    return inquirer.prompt([
+    inquirer.prompt([
         {
             type: 'list',
             name: 'role',
@@ -47,7 +46,7 @@ const mainQuestionsPrompt = () => {
 };   
 
 const internQuestionsPrompt = () => {
-    return inquirer.prompt([
+    inquirer.prompt([
         {
             type: 'input',
             name: 'Name',
@@ -77,7 +76,7 @@ const internQuestionsPrompt = () => {
 }
 
 const engineerQuestionsPrompt = ()=> {
-    return inquirer.prompt([
+    inquirer.prompt([
         {
             type: 'input',
             name: 'name',
@@ -107,7 +106,7 @@ const engineerQuestionsPrompt = ()=> {
 }   
 
 const managerQuestionsPrompt = ()=> {
-    return inquirer.prompt([
+     inquirer.prompt([
         {
             type: 'input',
             name: 'name',
