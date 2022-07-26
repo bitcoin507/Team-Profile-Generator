@@ -55,6 +55,8 @@ const buildTeamPage = (managers,interns, engineers ) => {
     }
 }
 
+module.exports = buildTeamPage
+
 
 
         
