@@ -3,7 +3,7 @@ const inquirer = require('inquirer');
 
 fs = require('inquirer');
 
-const teamBuilder = require('./src/teamBuilder');
+const buildTeamPage = require('./teamBuilder.js');
 
 
 
