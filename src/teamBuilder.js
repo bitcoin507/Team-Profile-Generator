@@ -1,8 +1,6 @@
 const fs = require('fs');
 
-const Manager = require('..//lib/Manager');
-const Intern = require('..//lib/Intern');
-const Engineer = require('..//lib/Engineer');
+
 
 
 const buildTeamPage = (managers,interns, engineers ) => {
@@ -44,12 +42,12 @@ const buildTeamPage = (managers,interns, engineers ) => {
             </div>
             </div>`;
         })
-
-        html = html.replace('{{MANAGERS}}', managerHTML);
-        html = html.replace('{{INTERNS}', internHTML);
         html = html.replace('{{ENGINEERS}}', engineerHTML);
+        html = html.replace('{{MANAGERS}}', managerHTML);
+        html = html.replace('{{INTERNS}}', internHTML);
+       
         
-       fs.writeFileSync('./dist/team.html',team.html ,'utf8');
+       fs.writeFileSync( '.dist/team.html',html,'utf8');
         console.log('Successfully wrote to team.html');
 
     }

@@ -42,7 +42,7 @@ const mainQuestionsPrompt = () => {
             
         } else
         if (answers.role === 'Generate Team Profile') {
-            buildTeamPage();
+            buildTeamPage(engineers,managers,interns);
         }
 
     });
