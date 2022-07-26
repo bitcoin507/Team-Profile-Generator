@@ -150,6 +150,8 @@ const managerQuestionsPrompt = ()=> {
     
 }
 
+mainQuestionsPrompt();
+
 
 
 
