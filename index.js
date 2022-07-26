@@ -3,13 +3,14 @@ const inquirer = require('inquirer');
 
 fs = require('inquirer');
 
-const buildTeamPage = require('./teamBuilder.js');
+
 
 
 
 const Manager = require("./lib/Manager");
 const Intern = require("./lib/Intern");
 const Engineer = require("./lib/Engineer");
+const buildTeamPage = require('./src/teamBuilder.js');
 
 
 
