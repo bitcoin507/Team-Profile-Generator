@@ -5,7 +5,7 @@ const Intern = require("./lib/Intern");
 const Engineer = require("./lib/Engineer");
 
 const buildTeamPage = (managers,interns, engineers ) => {
-    let html= fs.readFileSync('./templates/index.html', 'utf8');
+    let html= fs.readFileSync('./template/index.html, utf8');
     if (html)   
     {
         let managerHTML = '';
@@ -14,10 +14,12 @@ const buildTeamPage = (managers,interns, engineers ) => {
             <div class="card-header">
             <h2>${manager.getName()}</h2>
             <p>Employee ID: ${manager.getId()}</p>
-            <p>Email: ${manager.getEmail()}</p>
+            <p>Email:<a href="mailto:${manager.getEmail()}">${manager.getEmail()}</a></p>
             <p>Office Number: ${manager.getofficeNumber()}</p>
             </div>
             </div>`;
+
+           
         })
         let internHTML = '';  
         interns.forEach(intern => {
@@ -25,7 +27,7 @@ const buildTeamPage = (managers,interns, engineers ) => {
             <div class="card-header">
             <h2>${intern.getName()}</h2>
             <p>Employee ID: ${intern.getId()}</p>
-            <p>Email: ${intern.getEmail()}</p>
+            <p>Email:<a href="mailto:${intern.getEmail()}">${intern.getEmail()}</a></p>
             <p>School: ${intern.getSchool()}</p>
             </div>
             </div>`;
@@ -36,15 +38,15 @@ const buildTeamPage = (managers,interns, engineers ) => {
             <div class="card-header">
             <h2>${engineer.getName()}</h2>
             <p>Employee ID: ${engineer.getId()}</p>
-            <p>Email: ${engineer.getEmail()}</p>
+            <p>Email:<a href="mailto:${engineer.getEmail()}">${engineer.getEmail()}</a></p>
             <p>GitHub: ${engineer.getGithub()}</p>
             </div>
             </div>`;
         })
 
-        html = html.replace('{{manager}}', managerHTML);
-        html = html.replace('{{intern}}', internHTML);
-        html = html.replace('{{engineer}}', engineerHTML);
+        html = html.replace('{{MANAGERS}}', managerHTML);
+        html = html.replace('{{INTERNS}', internHTML);
+        html = html.replace('{{ENGINEERS}}', engineerHTML);
         
         fs.writeFileSync('./index.html', html, 'utf8');
 
@@ -52,6 +54,8 @@ const buildTeamPage = (managers,interns, engineers ) => {
 
     }
 }
+
+module.exports = teamBuilder;
 
 
         

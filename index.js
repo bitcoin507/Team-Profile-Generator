@@ -3,9 +3,13 @@ const inquirer = require('inquirer');
 
 fs = require('inquirer');
 
-const Manager = require("./lib/Manager")
-const Intern = require("./lib/Intern")
-const Engineer = require("./lib/Engineer")
+const teamBuilder = require('./src/teamBuilder');
+
+
+
+const Manager = require("./lib/Manager");
+const Intern = require("./lib/Intern");
+const Engineer = require("./lib/Engineer");
 
 
 
@@ -37,7 +41,7 @@ const mainQuestionsPrompt = () => {
             
         } else
         if (answers.role === 'Generate Team Profile') {
-            generateHTML;
+            buildTeamPage();
         }
 
     });
@@ -145,91 +149,8 @@ const managerQuestionsPrompt = ()=> {
     })
     
 }
-const generateHTML = () => {
-`<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="ie=edge">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-<title>Document</title>
-</head>
-<body>
-<div class="jumbotron jumbotron-fluid">
-<div class="container">
-
-div class = "employeeCard"> 
-
-<p>Name: ${Name}</p>
-<p>ID: ${answers.id}</p>
-<p>Email: ${email}</p>
-<p>GitHub: ${github}</p>
-<p>School: ${school}</p>
-<p>Office Number: ${officeNumber}</p>
-
-</div>
-
-div class = "employeeCard"> 
-
-<p>Name: ${Name}</p>
-<p>ID: ${id}</p>
-<p>Email: ${email}</p>
-<p>GitHub: ${github}</p>
-<p>School: ${school}</p>
-<p>Office Number: ${officeNumber}</p>
-
-</div>
-
-div class = "employeeCard">
-
-<p>Name: ${Name}</p>
-<p>ID: ${id}</p>
-<p>Email: ${email}</p>
-<p>GitHub: ${github}</p>
-<p>School: ${school}</p>
-<p>Office Number: ${officeNumber}</p>
-
-</div>
-
-div class = "employeeCard">
-
-<p>Name: ${Name}</p>
-<p>ID: ${id}</p>
-<p>Email: ${email}</p>
-<p>GitHub: ${github}</p>
-<p>School: ${school}</p>
-<p>Office Number: ${officeNumber}</p>
- </div>
-
-div class = "employeeCard"> 
-
-<p>Name: ${Name}</p>
-<p>ID: ${id}</p>
-<p>Email: ${email}</p>
-<p>GitHub: ${github}</p>
-<p>School: ${school}</p>
-<p>Office Number: ${officeNumber}</p>
-</div>
 
 
-  
-
- 
-</div>
-</div>
-</body>
-</html>`;
-}
-
-const init = () => {
-  mainQuestionsPrompt()
-    // Use writeFileSync method to use promises instead of a callback function
-    .then((answers) => fs.writeFileSync('index.html', generateHTML()))
-    .then(() => console.log('Successfully wrote to index.html'))
-    .catch((err) => console.error(err));
-};
-
-init();
 
 
 
