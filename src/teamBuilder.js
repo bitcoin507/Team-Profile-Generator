@@ -3,6 +3,7 @@ const fs= require('fs');
 
 
 
+
 const buildTeamPage = (managers,interns, engineers ) => {
 
     let html= fs.readFileSync('./template/index.html', 'utf8');
@@ -50,7 +51,7 @@ const buildTeamPage = (managers,interns, engineers ) => {
         
        
         
-       fs.writeFileSync( '.dist/team.html',html,'utf8');
+       fs.writeFileSync( './dist/team.html',html,'utf8');
         console.log('Successfully wrote to team.html');
 
     }
