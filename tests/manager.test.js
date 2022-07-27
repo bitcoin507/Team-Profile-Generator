@@ -3,13 +3,14 @@ const Manager = require('../lib/Manager');
 describe('Manager', () => {
 describe('Initializtion',() => {
  it('test the constructor', () => {
-    const id=4;
+    
     const name='Abendigo'; 
+    const id= 4;
     const email='test4@gmail.com';
     const role= 'Manager';
-    const officeNumber= '123456789101112';
+    const officeNumber= 1-234-567-8900;
 
-    const obj = new Manager(name, id, email, role);
+    const obj = new Manager(name, id, email, role,officeNumber);
 
     expect(obj.getName()).toEqual(name);
     expect(obj.getId()).toEqual(id);

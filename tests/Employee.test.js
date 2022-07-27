@@ -3,8 +3,9 @@ const Employee = require('../lib/Employee');
 describe('Employee', () => {
 describe('Initializtion',() => {
  it('test the constructor', () => {
-    const id=1;
+    
     const name='Billy'; 
+    const id= 11;
     const email='test@gmail.com';
     const role= 'Employee';
 

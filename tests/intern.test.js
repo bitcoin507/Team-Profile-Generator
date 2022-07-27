@@ -3,8 +3,9 @@ const Intern = require('../lib/Intern');
 describe('Intern', () => {
 describe('Initializtion',() => {
  it('test the constructor', () => {
-    const id=3;
+    
     const name='Ishmael'; 
+    const id=3;
     const email='test3@gmail.com';
     const role= 'Intern';
     const school= 'UCLA';
