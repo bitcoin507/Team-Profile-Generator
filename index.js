@@ -24,7 +24,7 @@ const mainQuestionsPrompt = () => {
             type: 'list',
             name: 'role',
             message: 'What is your role?',
-            choices: ['Engineer', 'Manager', 'Intern', 'Generate Team Profile' ]
+            choices: ['Engineers', 'Managers', 'Interns', 'Generate Team Profile' ]
         }
     ])
     
