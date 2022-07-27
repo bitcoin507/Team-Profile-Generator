@@ -25,7 +25,7 @@ const mainQuestionsPrompt = () => {
             name: 'role',
             message: 'What is your role?',
             choices: ['Engineer', 'Manager', 'Intern', 'Generate Team Profile' ]
-        },
+        }
     ])
     
     .then(answers => {
