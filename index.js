@@ -24,7 +24,7 @@ const mainQuestionsPrompt = () => {
             type: 'list',
             name: 'role',
             message: 'What is your role?',
-            choices: ['Engineers', 'Managers', 'Interns', 'Generate Team Profile' ]
+            choices: [ 'Managers', 'Interns','Engineers', 'Generate Team Profile' ]
         }
     ])
     
@@ -42,7 +42,7 @@ const mainQuestionsPrompt = () => {
             
         } else
         if (answers.role === 'Generate Team Profile') {
-            buildTeamPage(engineers,managers,interns);
+            buildTeamPage(managers, interns,engineers);
         }
 
     })
