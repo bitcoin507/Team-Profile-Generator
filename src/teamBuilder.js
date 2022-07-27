@@ -4,6 +4,7 @@
 
 
 const buildTeamPage = (managers,interns, engineers ) => {
+    
     let html= fs.readFileSync('./template/index.html', 'utf8');
     if (html)   
     {
