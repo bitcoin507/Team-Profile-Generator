@@ -42,9 +42,11 @@ const buildTeamPage = (managers,interns, engineers ) => {
             </div>
             </div>`;
         })
-        html = html.replace('{{ENGINEERS}}', engineerHTML);
         html = html.replace('{{MANAGERS}}', managerHTML);
         html = html.replace('{{INTERNS}}', internHTML);
+        html = html.replace('{{ENGINEERS}}', engineerHTML);
+        
+        
        
         
        fs.writeFileSync( '.dist/team.html',html,'utf8');

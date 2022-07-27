@@ -13,10 +13,10 @@ const Engineer = require("./lib/Engineer");
 const buildTeamPage = require('./src/teamBuilder.js');
 
 
-
-const engineers=[];
 const managers=[];
 const interns=[];
+const engineers=[];
+
 
 const mainQuestionsPrompt = () => {
     inquirer.prompt([
@@ -30,29 +30,62 @@ const mainQuestionsPrompt = () => {
     
     .then(answers => {
         
-        if (answers.role === 'Engineer') {
-            return engineerQuestionsPrompt();
+        if (answers.role === 'Managers') {
+            return managerQuestionsPrompt();
 
         } else 
-        if (answers.role === 'Manager') {
-            return managerQuestionsPrompt();
-        }   else 
-        if (answers.role === 'Intern') {
+        if (answers.role === 'Interns') {
             return internQuestionsPrompt();
+        }   else 
+        if (answers.role === 'Engineers') {
+            return engineerQuestionsPrompt();
             
         } else
         if (answers.role === 'Generate Team Profile') {
             buildTeamPage(engineers,managers,interns);
         }
 
-    });
+    })
 
     
 
 
 
 
-};   
+}  
+
+const managerQuestionsPrompt = ()=> {
+    inquirer.prompt([
+       {
+           type: 'input',
+           name: 'name',
+           message: 'What is your name?'
+       },
+       {
+           type: 'input',
+           name: 'id',
+           message: 'What is your ID?'
+       },
+       {
+           type: 'input',
+           name: 'email',
+           message: 'What is your email?'
+       },
+       {
+           type: 'input',
+           name: 'officeNumber',
+           message: 'What is your office number?'
+       }
+   ])
+   .then(answers => {
+       const manager = new Manager(answers.name, answers.id, answers.email, answers.officeNumber);
+       managers.push(manager);
+
+       mainQuestionsPrompt();
+       
+   })
+   
+}
 
 const internQuestionsPrompt = () => {
     inquirer.prompt([
@@ -118,38 +151,7 @@ const engineerQuestionsPrompt = ()=> {
     })
 }   
 
-const managerQuestionsPrompt = ()=> {
-     inquirer.prompt([
-        {
-            type: 'input',
-            name: 'name',
-            message: 'What is your name?'
-        },
-        {
-            type: 'input',
-            name: 'id',
-            message: 'What is your ID?'
-        },
-        {
-            type: 'input',
-            name: 'email',
-            message: 'What is your email?'
-        },
-        {
-            type: 'input',
-            name: 'officeNumber',
-            message: 'What is your office number?'
-        }
-    ])
-    .then(answers => {
-        const manager = new Manager(answers.name, answers.id, answers.email, answers.officeNumber);
-        managers.push(manager);
 
-        mainQuestionsPrompt();
-        
-    })
-    
-}
 
 mainQuestionsPrompt();
 
