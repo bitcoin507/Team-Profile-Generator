@@ -2,7 +2,7 @@
 
 ## Table of contents
 * [General info](#general-info)
-* [How to use](#how to use)
+* [How to use](#how-to-use)
 * Running Tests with Jest
 
 ## General Info
