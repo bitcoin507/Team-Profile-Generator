@@ -9,12 +9,19 @@
 The goal is to create  a Node.js command-line application that takes in information about employees on a software engineering team, then generates an HTML webpage that displays summaries for each person.
 
 ## How to Use
-*First navigate to the root folder of the app in the terminal
-*Start the app by inputing 'node index.js'
-*A drop-down menu will appear with a promt to enter the role for each team member.The choices are Engineer;Intern;Manager;Generate team profile.IMPORTANT NOTE Only choose Generate team profile after all employee data has been entered.
+*First navigate to the root folder of the app in the terminal.
+
+*Start the app by inputing 'node index.js'.
+
+*A drop-down menu will appear with a promt to enter the role for each team member.The choices are Engineer;Intern;Manager;Generate team profile.IMPORTANT NOTE 
+Only choose Generate team profile after all employee data has been entered.
+
 *Once you choses a role for the first employee answr the prompts with the corosponding data.
+
 *Repeat this step for each employee in your team.
+
 *When you have entered all of the info for each employee choose the generate team profile and an HTML file will be created in the dis file.
+
 *Open this filein your local browser.
 
 ## How to run Jest tests 
