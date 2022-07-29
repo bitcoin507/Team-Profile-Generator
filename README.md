@@ -20,7 +20,7 @@ The goal is to create  a Node.js command-line application that takes in informat
 ## How to run Jest tests 
 Tests can be run with JEST before launching to test the code of the app. To do this navigate to the root folder of the app and input the following command in the terminal 'npm run test'
 
-Here is a video showing the fuctionality of the app.Folow the notes below to recreate.
+Here is a video showing the fuctionality of the app.
 
 https://user-images.githubusercontent.com/39675578/181747717-c3129596-6316-4d3b-b33d-cd275dd98b43.mp4
 
