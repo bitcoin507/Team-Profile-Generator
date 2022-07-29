@@ -3,7 +3,7 @@
 ## Table of contents
 * [General info](#general-info)
 * [How to use](#how-to-use)
-* Running Tests with Jest
+* [Running Tests with Jest](#running-tests-with-jest)
 
 ## General Info
 The goal is to create  a Node.js command-line application that takes in information about employees on a software engineering team, then generates an HTML webpage that displays summaries for each person.
